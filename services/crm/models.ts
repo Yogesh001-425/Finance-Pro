@@ -22,6 +22,27 @@ export interface Opportunity {
   notes?: string;
 }
 
+export interface Task {
+  id: string;
+  title: string;
+  description?: string;
+  status: "todo" | "in_progress" | "blocked" | "done";
+  priority: "low" | "medium" | "high";
+  createdAt: string;
+  updatedAt?: string;
+  dueDate?: string;
+  assignedTo?: string;
+  relatedCustomerId?: string;
+  relatedOpportunityId?: string;
+}
+
+export interface TaskSummary {
+  totalTasks: number;
+  openTasks: number;
+  completedTasks: number;
+  overdueTasks: number;
+}
+
 export interface CRMReport {
   summary: string;
   totalCustomers: number;
@@ -30,4 +51,5 @@ export interface CRMReport {
   lostOpportunities: number;
   pipelineValue: number;
   aiInsights?: string;
+  taskSummary?: TaskSummary;
 }
